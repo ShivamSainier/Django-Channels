@@ -12,7 +12,7 @@ import os
 from django.urls import path
 from channels.routing import ProtocolTypeRouter, URLRouter
 from django.core.asgi import get_asgi_application
-
+from Channel_proj.consumer import TestConsumer
 from django.core.asgi import get_asgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Channels.settings')
@@ -20,7 +20,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Channels.settings')
 application = get_asgi_application()
 
 ws_patterns=[
-    path('home',)
+    path('ws/test/',TestConsumer.as_asgi())
 ]
 
 application=ProtocolTypeRouter(
