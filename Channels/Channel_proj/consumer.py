@@ -17,5 +17,7 @@ class TestConsumer(WebsocketConsumer):
         text_data=json.dumps({'status':'Revieved'})
         self.send(text_data)
         pass
-    def disconnect(self):
+    def disconnect(self,*args, **kwargs):
+        self.send(json.dumps({'daata':'disconnected'}))
+        print("Disconnect")
         pass
